@@ -12,10 +12,8 @@ mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
 
 // Define a mongoose schema for your data
 const dataSchema = new mongoose.Schema({
-    // Define your schema fields here
-    field1: String,
-    field2: Number,
-    // Example fields, replace with your actual schema
+    name: String,
+    phone: String
 });
 
 // Define a mongoose model based on the schema
@@ -33,7 +31,7 @@ app.get('/hi', (req, res) => {
     res.json({ "hi": "hello" });
 });
 
-// GET request to fetch data from MongoDB
+// GET request to fetch all data from MongoDB
 app.get('/data', (req, res) => {
     // Find all documents in the Data collection
     Data.find({}, (err, data) => {
